@@ -1,3 +1,30 @@
+HPDIC MOD
+=========
+* Installation on bicycle.cs.washington.edu
+  * You need to manually install NTL:
+    ```
+    mkdir -p $HOME/download
+    mkdir -p $HOME/software
+    cd $HOME/download
+    wget https://libntl.org/ntl-11.5.1.tar.gz
+    gunzip ntl-11.5.1.tar.gz
+    tar -xf ntl-11.5.1.tar
+    cd ntl-11.5.1/src
+    ./configure PREFIX="$HOME/software/ntl"
+    make
+    make install
+    ```
+  * Then, install HElib (using cmake):
+    ```
+    cd $HOME/HElib/
+    mkdir build
+    cd build
+    cmake .. -DNTL_DIR=$HOME/software/ntl -DCMAKE_INSTALL_PREFIX:PATH=$HOME/software/helib
+    make 
+    make install
+    ```
+
+
 HElib
 =====
 
