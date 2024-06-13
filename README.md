@@ -10,7 +10,7 @@ HPDIC MOD
     gunzip ntl-11.5.1.tar.gz
     tar -xf ntl-11.5.1.tar
     cd ntl-11.5.1/src
-    ./configure PREFIX="$HOME/software/ntl"
+    ./configure PREFIX="$HOME/software"
     make
     make install
     ```
@@ -19,11 +19,24 @@ HPDIC MOD
     cd $HOME/HElib/
     mkdir build
     cd build
-    cmake .. -DNTL_DIR=$HOME/software/ntl -DCMAKE_INSTALL_PREFIX:PATH=$HOME/software/helib
+    cmake .. -DNTL_DIR=$HOME/software -DCMAKE_INSTALL_PREFIX:PATH=$HOME/software
     make 
     make install
     ```
-
+  * Now, test HElib basics:
+    ```
+    cd
+    mkdir build_helib
+    cd build_helib
+    cmake ~/system-0/fhe_vanilla/helib/examples
+    make -j16  # Need to re-run this after making changes to the source code
+    ./bin/01_ckks_basics 
+    ```
+  * Finally, try to mix-compile with MySQL:
+    ```
+    cd ~/system-0/src/mysql
+    g++ streche.cpp -fPIC -shared -o ~/streche.so -I /usr/include/mysql -I $HOME/software/helib/include -I $HOME/software/ntl/include -lgmp -std=c++17
+    ```
 
 HElib
 =====
