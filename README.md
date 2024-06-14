@@ -19,7 +19,7 @@ HPDIC MOD
     cd $HOME/HElib/
     mkdir build
     cd build
-    cmake .. -DNTL_DIR=$HOME/software -DCMAKE_INSTALL_PREFIX:PATH=$HOME/software
+    cmake .. -DNTL_DIR=$HOME/software -DCMAKE_INSTALL_PREFIX=$HOME/software
     make 
     make install
     ```
