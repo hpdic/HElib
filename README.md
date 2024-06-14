@@ -10,7 +10,7 @@ HPDIC MOD
     gunzip ntl-11.5.1.tar.gz
     tar -xf ntl-11.5.1.tar
     cd ntl-11.5.1/src
-    ./configure PREFIX="$HOME/software"
+    ./configure --prefix="$HOME/software"
     make
     make install
     ```
